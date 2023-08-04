@@ -34,7 +34,7 @@
                     let tate = Number(size[0]);
                     let yoko = Number(size[1]);
                     let area = tate * yoko;
-                    let exhibit = items[i-1]["出展先"].trim();
+                    let exhibit = toString(items[i-1]["出展先"]).trim();
                     let remarks = items[i-1]["備考"].trim();
                     if (!title.includes(titleword)) {
                         continue;
