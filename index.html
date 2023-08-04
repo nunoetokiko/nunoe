@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        .scroll{
+            height: 1000px;
+            overflow: auto;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <title>時子布絵作品一覧</title>
+    <script src="imglist.js"></script>
+</head>
+
+<body>
+    <script>updateList()</script>
+    <div class="filter">
+        タイトル：<input type="text" id="title" onchange="updateList()">　 
+        出展先：<input type="text" id="exhibit" onchange="updateList()">　
+        サイズ：<select id="area" onchange="updateList()">
+            <option>all</option>
+            <option>200000</option>
+            <option>5500</option>
+            <option>2500</option>
+            <option>1190</option>
+            <option>240</option></select>　
+        縦長横長：<select id="portraitlandscape" onchange="updateList()">
+            <option>all</option>
+            <option>縦長</option>
+            <option>横長</option>
+        </select>　
+        補足：<input type="text" id="remarks" onchange="updateList()">
+    </div><br>
+    <div class="scroll">
+    <span>
+    <table id="imglist"></table>
+    </span>
+    </div>
+
+</body>
+</html>
