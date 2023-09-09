@@ -42,7 +42,7 @@
                     if (!exhibit.includes(exhibitword)) {
                         continue;
                     }
-                    if (areaupper != "all"){
+                    if (areaupper != ""){
                         if (!((area >= areaunder) && (area <= areaupper)))
                         {
                             continue;
