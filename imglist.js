@@ -1,7 +1,26 @@
     // GASでスプレッドシートデータを読み出す
     const endpoint = "https://script.google.com/macros/s/AKfycbyB7HA2kJAz9AcAcP0vEB8-0ucGCytpb9CPCOOtjX4axwLfjq62dKCKjqnsvfU_Chx8/exec";
     var arr = [240, 1190, 2500, 5500, 200000];
+/*
+    function isFileExist(fname){
 
+        var source = [ image ];
+        var file_property_bag = {
+            type: "image",
+            lastModified: 0
+        };
+        
+        var fileObj = new File( source , fname, file_property_bag );
+        flag = fileObj.exist;
+        if (flag == true){
+            console.log('ファイルは存在します。');
+            return true;
+        }
+        else
+            console.log('ファイルは存在しません。');
+        return false;
+    }
+*/
     function updateList(){
         //APIを使って非同期データを取得する
         fetch(endpoint)
@@ -15,6 +34,7 @@
                 portraitlandscape = document.getElementById("portraitlandscape").value;
                 remarksword = document.getElementById("remarks").value;
                 areaupper =  document.getElementById("area").value;
+                let startno = Number(document.getElementById("startno").value);
                 let areaunder = 0;
                 if (areaupper != "all"){
                     for(let i=0; i<arr.length; ++i){
@@ -27,7 +47,7 @@
                 // 表示する画像
                 let txt = '<tr>';
                 let count = 0;
-                for(let i = 1; i < items.length; i++){
+                for(let i = startno; i < items.length; i++){
                     let fname = 'img/N' + i + '.jpg';
                     let title = items[i-1]["作品名"].trim();
                     let size = items[i-1]["サイズ"].split('x');
@@ -57,6 +77,16 @@
                     if (!remarks.includes(remarksword)) {
                         continue;
                     }
+                    /*
+                    bfileexist = isFileExist("C:\\works\\JavaScript\\ImgList\\img\\" + fname);
+                    //bfileexist = false;
+                    if (existpict == "写真有" && !bfileexist){
+                        continue;
+                    }
+                    else if(existpict == "写真無" && bfileexist){
+                        continue;
+                    }
+                    */
 
                     count += 1;
                     txt += '<td><img src=' + fname + ' width=200>';
